@@ -1,0 +1,19 @@
+{
+   "name": "linkify-object",
+   "main": "linkify-object.js",
+   "version": "1.0.1",
+   "author": {
+      "url": "https://github.com/tpkn/"
+   },
+   "repository": "https://github.com/tpkn/linkify-object",
+   "license": "MIT",
+   "keywords": [
+      "link",
+      "obj",
+      "object",
+      "array",
+      "url",
+      "string",
+      "convert"
+   ]
+}
