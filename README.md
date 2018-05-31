@@ -2,8 +2,8 @@
 Converts object props into a link
 
 
-Short and quick module that converts object properties `{ a: b, c: d }` into a link `&a=b&c=d`.   
-Works both in Node and web browsers.
+Short and quick module that converts object properties `{ a: b, c: d }` into a link `&a=b&c=d` and offers filter functionality. Was made for Express `request.queue` object. Works both in Node and web browsers (some of them).
+
 
 
 ## Installation
@@ -19,13 +19,13 @@ npm install linkify-object
 
 
 ### object
-Type: _Object_ 
+Type: _Object_   
 
 
 ### filter
-Type: _String_ | _Array_  
+Type: _String_ | _Array_ | _Function_  
 Default: `true`  
-Helps to filter out props. Could be a `string` or an `array`. Uses 'indexOf' method.  
+Helps to filter out props. Could be a `string`, a `string[]` or a `function`.   
 
 
 
@@ -34,10 +34,21 @@ Helps to filter out props. Could be a `string` or an `array`. Uses 'indexOf' met
 ```javascript
 const linkify = require('linkify-object');
 
-let obj = {a: 'display', b: 23, c: 'VAST', d: 123456, e: 0, f: 3879, g: '[timestamp]'};
-let filter = ['a', 'b', 'e', 'g'];
+let obj = { a: 1, b: 2, c: 3, d: 4 };
 
-let link = linkify(obj, filter);
-// => 'c=VAST&d=123456&f=3879'
+linkify(obj, 'a');
+// => 'b=2&c=3&d=4'
+
+linkify(obj, ['b', 'c']);
+// => 'a=1&d=4'
+
+linkify(obj, item => /^(a|b|d)/.test(item));
+// => 'c=3'
 ```
+
+
+## Changelog 
+#### v1.1.0 (2018-05-31):
+- now it can stringify nested objects
+- more advanced filter
 
