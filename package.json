@@ -1,7 +1,7 @@
 {
    "name": "linkify-object",
    "main": "linkify-object.js",
-   "version": "1.0.4",
+   "version": "1.1.0",
    "author": {
       "url": "https://github.com/tpkn/"
    },
